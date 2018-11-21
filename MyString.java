@@ -14,9 +14,8 @@ public class MyString implements CharSequence{
   public char charAt(int index) {
     if (index < 0 || index > data.length) {
       throw new IndexOutOfBoundsException("Index out of bounds");
-    } else {
-      return data[index];
     }
+    return data[index];
   }
 
   public int length() {
@@ -24,6 +23,9 @@ public class MyString implements CharSequence{
   }
 
   public CharSequence subSequence(int start, int end) {
+    if (start < 0 || end < 0 || end > data.length || start > end) {
+      throw new IndexOutOfBoundsException("Index out of bounds");
+    }
     return "";
   }
 
@@ -35,6 +37,7 @@ public class MyString implements CharSequence{
     MyString s = new MyString("dog");
     try {
       System.out.println(s.charAt(1));
+      System.out.println(s.length());
       System.out.println(s.charAt(-1));
     } catch (IndexOutOfBoundsException e) {
       System.out.println(e);
