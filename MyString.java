@@ -11,6 +11,7 @@ public class MyString implements CharSequence{
     }
   }
 
+  //
   public char charAt(int index) {
     if (index < 0 || index > data.length) {
       throw new IndexOutOfBoundsException("Index out of bounds");
@@ -26,7 +27,11 @@ public class MyString implements CharSequence{
     if (start < 0 || end < 0 || end > data.length || start > end) {
       throw new IndexOutOfBoundsException("Index out of bounds");
     }
-    return "";
+    String c = "";
+    for (int i = start; i < end; i++) {
+      c += data[i];
+    }
+    return c;
   }
 
   public String toString() {
