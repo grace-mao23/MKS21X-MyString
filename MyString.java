@@ -31,7 +31,7 @@ public class MyString implements CharSequence{
     if (start < 0 || end < 0 || end > data.length || start > end) {
       throw new IndexOutOfBoundsException("Index out of bounds");
     }
-    String c = "";
+    String c = ""; // a String is a CharSequence
     for (int i = start; i < end; i++) {
       c += data[i];
     }
@@ -47,7 +47,7 @@ public class MyString implements CharSequence{
     try {
       System.out.println(s.charAt(1));
       System.out.println(s.length());
-      System.out.println(s.charAt(-1));
+      //System.out.println(s.charAt(-1));
     } catch (IndexOutOfBoundsException e) {
       System.out.println(e);
     }
