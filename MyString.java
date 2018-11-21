@@ -11,7 +11,8 @@ public class MyString implements CharSequence{
     }
   }
 
-  //
+  // Returns character at index given
+  // Throws IndexOutOfBoundsException if index is negative or too large
   public char charAt(int index) {
     if (index < 0 || index > data.length) {
       throw new IndexOutOfBoundsException("Index out of bounds");
@@ -19,10 +20,13 @@ public class MyString implements CharSequence{
     return data[index];
   }
 
+  // Returns length
   public int length() {
     return data.length;
   }
 
+  // Returns charSequence of chars from start inclusive to end exclusive
+  // Throws exception if either start or end is negative or too large
   public CharSequence subSequence(int start, int end) {
     if (start < 0 || end < 0 || end > data.length || start > end) {
       throw new IndexOutOfBoundsException("Index out of bounds");
