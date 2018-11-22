@@ -43,11 +43,14 @@ public class MyString implements CharSequence{
   }
 
   public static void main(String[] args) {
-    MyString s = new MyString("dog");
+    MyString s = new MyString("dogsound");
     try {
       System.out.println(s.charAt(1));
       System.out.println(s.length());
-      //System.out.println(s.charAt(-1));
+      System.out.println(s.subSequence(0,3));
+      System.out.println(s.subSequence(3,8));
+      System.out.println(s.subSequence(4,2)); // To test exception
+      //System.out.println(s.charAt(-1)); // To test exception
     } catch (IndexOutOfBoundsException e) {
       System.out.println(e);
     }
