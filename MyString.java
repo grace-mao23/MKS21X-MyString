@@ -1,6 +1,4 @@
-// Add Comparable<CharSequence> later
-
-public class MyString implements CharSequence{
+public class MyString implements CharSequence,Comparable<CharSequence>{
   private char[] data;
 
   // Creates array from CharSequence given
@@ -36,6 +34,10 @@ public class MyString implements CharSequence{
       c += data[i];
     }
     return c;
+  }
+
+  public int compareTo(CharSequence s) {
+    return -1;
   }
 
   public String toString() {
