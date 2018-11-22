@@ -36,8 +36,12 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     return c;
   }
 
-  public int compareTo(CharSequence s) {
-    return -1;
+  public int compareTo(CharSequence s) throws ClassCastException {
+    int result = 0;
+    if (s == null) {
+      throw new NullPointerException("Cannot compare");
+    }
+    return 0;
   }
 
   public String toString() {
