@@ -36,10 +36,24 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     return c;
   }
 
+  // Returns -1 if s is larger, 1 if s is smaller, 0 is equal
+  // Throws NullPointerException is s is null
+  // Throws ClassCastException
   public int compareTo(CharSequence s) throws ClassCastException {
     int result = 0;
     if (s == null) {
       throw new NullPointerException("Cannot compare");
+    }
+    int shorter = s.length();
+    if (s.length() > data.length) {
+      shorter = data.length;
+    }
+    for (int i = 0; i < shorter; i++) {
+      if (data[i] < s.charAt(i)) {
+        return -1;
+      } else if (s.charAt(i) < data[i]) {
+        return 1;
+      }
     }
     return 0;
   }
@@ -54,18 +68,24 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
 
   public static void main(String[] args) {
     MyString s = new MyString("dogsound");
+    MyString t = new MyString("catsound");
     try {
       System.out.println(s); // test toString
       System.out.println("Char at index 1: " + s.charAt(1)); // test charAt
+      //System.out.println(s.charAt(-1)); // To test exception
       System.out.println("Length of MyString: " + s.length()); // test length
       System.out.println("From start to index 3: " + s.subSequence(0,3)); // test sub
       System.out.println("From index 3 to end: " + s.subSequence(3,8)); // test sub
       //System.out.println(s.subSequence(4,2)); // To test exception
       //System.out.println(s.subSequence(2,20)); // To test exception
       //System.out.println(s.subSequence(-1,8)); // To test exception
-      //System.out.println(s.charAt(-1)); // To test exception
+      System.out.println("Comparing catsound to dogsound: " + s.compareTo(t)); // test compareTo
+      System.out.println("Comparing dogsound to catsound: " + t.compareTo(s)); // test compareTo
+      System.out.println("Comparing dogsound to dogsound: " + s.compareTo("dogsound")); // test compareTo
     } catch (IndexOutOfBoundsException e) {
       System.out.println(e);
+    } catch (NullPointerException f) {
+      System.out.println(f);
     }
   }
 }
