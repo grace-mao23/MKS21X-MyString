@@ -39,7 +39,11 @@ public class MyString implements CharSequence{
   }
 
   public String toString() {
-    return "";
+    String result = "";
+    for (int i = 0; i < data.length; i++) {
+      result += data[i];
+    }
+    return result;
   }
 
   public static void main(String[] args) {
