@@ -45,11 +45,14 @@ public class MyString implements CharSequence{
   public static void main(String[] args) {
     MyString s = new MyString("dogsound");
     try {
-      System.out.println(s.charAt(1));
-      System.out.println(s.length());
-      System.out.println(s.subSequence(0,3));
-      System.out.println(s.subSequence(3,8));
-      System.out.println(s.subSequence(4,2)); // To test exception
+      System.out.println(s); // test toString
+      System.out.println("Char at index 1: " + s.charAt(1)); // test charAt
+      System.out.println("Length of MyString: " + s.length()); // test length
+      System.out.println("From start to index 3: " + s.subSequence(0,3)); // test sub
+      System.out.println("From index 3 to end: " + s.subSequence(3,8)); // test sub
+      //System.out.println(s.subSequence(4,2)); // To test exception
+      //System.out.println(s.subSequence(2,20)); // To test exception
+      //System.out.println(s.subSequence(-1,8)); // To test exception
       //System.out.println(s.charAt(-1)); // To test exception
     } catch (IndexOutOfBoundsException e) {
       System.out.println(e);
